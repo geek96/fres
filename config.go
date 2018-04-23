@@ -24,6 +24,7 @@ type Config struct {
 	MaxGasLimit          uint64 `yaml:"max_gas_limit"`
 	RecipientsCSVPath    string `yaml:"recipients_csv_path"`
 	BatchSize            int    `yaml:"batch_size"`
+	NumberOfTokens       string `yaml:"number_of_tokens"`
 }
 
 var config *Config

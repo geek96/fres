@@ -17,6 +17,7 @@ import (
 
 var wallets []common.Address
 var values []*big.Int
+var tokens *big.Int
 
 func main() {
 
@@ -83,16 +84,29 @@ func main() {
 		log.Fatalf("CSV file is empty!")
 	}
 
+	tokens, ok := new(big.Int).SetString(strings.TrimSpace(conf.NumberOfTokens), 10)
+	if !ok {
+		log.Fatal("Number of tokens is invalid!")
+	}
+
 	counter := 0
 	for i := 0; i < recordsLen; i++ {
 
 		counter++
 
 		record := records[i]
+		record_elements := len(record)
 		address := common.HexToAddress(record[0])
 		wallets = append(wallets, address)
-		tokens := new(big.Int).SetInt64(500)
-		values = append(values, tokens)
+
+		tkns := tokens
+		if record_elements > 1 {
+			v, ok := new(big.Int).SetString(strings.TrimSpace(record[1]), 10)
+			if ok {
+				tkns = v
+			}
+		}
+		values = append(values, tkns)
 		// log.Printf("%d Address %x will receive %d Tokens", i, address, tokens)
 		// log.Printf("Wallets count %d values %d ", len(wallets), len(values))
 		if (i > (perTxAddress-1) && i%perTxAddress == 0) || (i+1 == recordsLen) {

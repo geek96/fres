@@ -3,5 +3,6 @@ private_key_path: keystore.json
 private_key_passphrase: dustin@09876@nukleus
 node_address: https://testnet.infura.io/g8VYSZ6DGzZv9iAi4xnp
 max_gas_limit: 4150000
-recipients_csv_path: airdrop-wallets.csv
+recipients_csv_path: test.csv
 batch_size: 120
+number_of_tokens: 220000000000000000000
