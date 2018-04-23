@@ -1,8 +1,8 @@
-contract_address: 0x4Dc92C709aD77c3E9Af323C14d93578059208c12
-private_key_path: keystore.json
-private_key_passphrase: dustin@09876@nukleus
-node_address: https://testnet.infura.io/g8VYSZ6DGzZv9iAi4xnp
+contract_address: <smart_contract_address>
+private_key_path: <path_of_keystore>
+private_key_passphrase: <your_password>
+node_address: https://mainnet.infura.io/g8VYSZ6DGzZv9iAi4xnp
 max_gas_limit: 4150000
-recipients_csv_path: test.csv
+recipients_csv_path: <path_of_csv_file>
 batch_size: 120
 number_of_tokens: 220000000000000000000
